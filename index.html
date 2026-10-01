@@ -1,34 +1,95 @@
 <!doctype html>
-<html>
+<html lang="ja" data-lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
 <title>= tale(JK, 3)</title>
+<meta name="description" content="= tale(JK, 3)（taleJK3）の作品ページ。Steamでウィッシュリスト受付中の『Roll Value』ほか。">
+<link rel="canonical" href="https://talejk3.com/">
 
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 
 <meta property="og:title" content="= tale(JK, 3)">
-<meta property="og:description" content="=tale(JK,3)">
+<meta property="og:description" content="= tale(JK, 3)（taleJK3）の作品ページ。Steamでウィッシュリスト受付中の『Roll Value』ほか。">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://talejk3.com">
+<meta property="og:url" content="https://talejk3.com/">
+<meta property="og:site_name" content="= tale(JK, 3)">
+<meta property="og:image" content="https://talejk3.com/rollvalue/img/og-rollvalue.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@taleJK3">
-<meta name="twitter:image" content="https://talejk3.com/og.png">
+<meta name="twitter:image" content="https://talejk3.com/rollvalue/img/og-rollvalue.jpg">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Shippori+Mincho:wght@600&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+
+<!-- ===== 変わりうる値はここだけで管理する ===== -->
+<script>
+window.SITE = {
+  title: "= tale(JK, 3)",
+  // 体験版をSteamで公開したら true にする
+  demoLive: false,
+  links: {
+    x: "https://x.com/taleJK3"
+  }
+};
+</script>
+<script src="/assets/site.js"></script>
 </head>
 
-<body style="font-family:sans-serif;text-align:center;margin-top:80px;">
+<body>
 
-<h1>= tale(JK, 3)</h1>
-<p>= tale(JK, 3) / taleJK3</p>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">= tale(JK, 3)</a>
+    <nav class="header-nav" aria-label="Site">
+      <a href="https://x.com/taleJK3" data-href="links.x" target="_blank" rel="noopener">X</a>
+      <span class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-set-lang="ja" aria-pressed="true">日本語</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </span>
+    </nav>
+  </div>
+</header>
 
-<p>
-<a href="https://x.com/taleJK3" target="_blank" rel="noopener">X</a>
-</p>
+<main>
+  <section class="brand-hero">
+    <div class="wrap">
+      <h1>= tale(JK, 3)</h1>
+      <p>
+        <span lang="ja">ゲームとツールと物語をつくっています。</span>
+        <span lang="en">Making games, tools, and stories.</span>
+      </p>
+    </div>
+  </section>
 
-<p style="opacity:.7;">brand: = tale(JK, 3) / signature: <code>=tale(JK,3)</code></p>
+  <!-- 作品カード。公開したものから追加する -->
+  <section class="wrap works" aria-label="Works">
+    <a class="work-card" href="/rollvalue/">
+      <img src="/rollvalue/img/capsule.webp" width="1232" height="706" alt="">
+      <div class="body">
+        <span class="tag demo-live"><span lang="ja">体験版 配信中</span><span lang="en">Demo out now</span></span>
+        <span class="tag demo-soon"><span lang="ja">2026年12月 発売予定</span><span lang="en">Coming December 2026</span></span>
+        <h2>Roll Value</h2>
+        <p>
+          <span lang="ja">選択は、あなたの価値観を映し出す。危機に瀕した王国で3人の冒険者を導く、物語重視のテーブルトップ風RPG。</span>
+          <span lang="en">Your choices reveal what you value. A story-driven, tabletop-style RPG about guiding three adventurers through a kingdom in crisis.</span>
+        </p>
+      </div>
+    </a>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© <span id="year">2026</span> = tale(JK, 3)</span>
+    <span><a href="https://x.com/taleJK3" target="_blank" rel="noopener">X @taleJK3</a></span>
+  </div>
+</footer>
 
 </body>
 </html>

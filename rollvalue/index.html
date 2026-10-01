@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="ja" data-lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Roll Value｜= tale(JK, 3)</title>
+<meta name="description" content="選択は、あなたの価値観を映し出す。危機に瀕した王国で3人の冒険者を導く、物語重視のテーブルトップ風RPG。Steamでウィッシュリスト受付中。">
+<link rel="canonical" href="https://talejk3.com/rollvalue/">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+
+<meta property="og:title" content="Roll Value">
+<meta property="og:description" content="選択は、あなたの価値観を映し出す。危機に瀕した王国で3人の冒険者を導く、物語重視のテーブルトップ風RPG。Steamでウィッシュリスト受付中。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://talejk3.com/rollvalue/">
+<meta property="og:site_name" content="= tale(JK, 3)">
+<meta property="og:image" content="https://talejk3.com/rollvalue/img/og-rollvalue.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Roll Value キーアート">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@taleJK3">
+<meta name="twitter:image" content="https://talejk3.com/rollvalue/img/og-rollvalue.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Shippori+Mincho:wght@600&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+
+<!-- ===== 変わりうる値はここだけで管理する ===== -->
+<script>
+window.SITE = {
+  title: { ja: "Roll Value｜= tale(JK, 3)", en: "Roll Value | = tale(JK, 3)" },
+  links: {
+    steam: "https://store.steampowered.com/app/5062630/?utm_source=talejk3&utm_medium=web",
+    widget: { ja: "https://store.steampowered.com/widget/5062630/?l=japanese", en: "https://store.steampowered.com/widget/5062630/?l=english" },
+    x: "https://x.com/taleJK3",
+    mail: "mailto:talejk3@gmail.com",
+    presskit: "/rollvalue/presskit/RollValue_presskit.zip"
+  },
+  email: "talejk3@gmail.com",
+  // 体験版をSteamで公開したら true にする（ボタンと案内文が切り替わる）
+  demoLive: false,
+  // Steam Next フェス（終了時刻を過ぎるとフェスの案内は自動で隠れる）
+  fest: { start: "2026-10-19T10:00:00-07:00", end: "2026-10-26T10:00:00-07:00" },
+  facts: {
+    release: { ja: "2026年12月予定", en: "December 2026 (planned)" },
+    price: { ja: "未定", en: "TBA" }
+  }
+};
+</script>
+<script src="/assets/site.js"></script>
+
+<style>
+  /* ---- ヒーロー ---- */
+  .hero { position: relative; background: var(--bg); }
+  .hero-art { position: relative; display: block; }
+  .hero-art picture img { width: 100%; aspect-ratio: 1232 / 706; object-fit: cover; }
+  .hero-art::after {
+    content: ""; position: absolute; inset: auto 0 0 0; height: 30%;
+    background: linear-gradient(to bottom, rgba(11,13,28,0), var(--bg));
+    pointer-events: none;
+  }
+  .hero-logo { display: none; }
+  .hero-body { position: relative; text-align: center; padding: 8px 0 24px; background: var(--bg); }
+  .hero-tagline { font-family: var(--font-serif); font-size: clamp(1.05rem, .95rem + .6vw, 1.35rem); margin-bottom: 1.4em; }
+  .hero-note { margin-top: 18px; font-size: .9rem; color: var(--muted); }
+  .hero-note strong { color: var(--gold-strong); font-weight: 700; }
+
+  @media (min-width: 760px) {
+    .hero-art picture img { aspect-ratio: 3840 / 1240; }
+    .hero-logo {
+      display: block; position: absolute; left: 50%; top: 50%;
+      width: min(26%, 340px); transform: translate(-50%, -52%);
+      filter: drop-shadow(0 4px 18px rgba(0,0,0,.45));
+    }
+    .hero-body { margin-top: -24px; background: transparent; }
+  }
+
+  .hero + .section { padding-top: 8px; }
+
+  /* ---- フェス ---- */
+  .fest {
+    display: grid; gap: 8px 24px; align-items: center;
+    border: 1px solid var(--gold); background: linear-gradient(135deg, #1d2145, #141834);
+  }
+  @media (min-width: 760px) { .fest { grid-template-columns: 1fr auto; padding: 28px 32px; } }
+  .fest h2 { margin-bottom: .2em; }
+  .fest p { margin: 0; color: var(--muted); }
+  .fest-period { color: var(--text) !important; font-weight: 700; font-size: 1.05rem; }
+  .fest-badge {
+    display: inline-block; font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+    padding: 0 10px; border-radius: 999px; background: var(--gold); color: var(--on-gold); margin-bottom: 6px;
+  }
+  .fest-badge[data-when] { display: none; }
+  :root[data-fest="upcoming"] .fest-badge[data-when="upcoming"],
+  :root[data-fest="live"] .fest-badge[data-when="live"] { display: inline-block; }
+
+  /* ---- 特徴 ---- */
+  .lead { font-family: var(--font-serif); font-size: clamp(1.1rem, 1rem + .5vw, 1.3rem); max-width: 46em; }
+  .features { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); margin-top: 28px; }
+  .features h3 { color: var(--gold-strong); }
+  .features p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+  /* ---- スクリーンショット ---- */
+  .shots { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+  .shots a { display: block; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); }
+  .shots a:hover { border-color: var(--gold); }
+  .shots img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+
+  .widget { margin-top: 32px; }
+  /* color-scheme を揃えないと、ダークなページでは iframe の背景が白く塗られる（角と下の白） */
+  .widget iframe { display: block; width: 100%; max-width: 646px; height: 190px; border: 0; margin: 0 auto; color-scheme: normal; }
+  /* Steamウィジェットは幅が固定で、スマホ幅では中で横スクロールになるため出さない（CTAで代替） */
+  @media (max-width: 645px) { .widget { display: none; } }
+
+  /* ---- プレス ---- */
+  .press-grid { display: grid; gap: 20px; }
+  @media (min-width: 900px) { .press-grid { grid-template-columns: 1.1fr 1fr; } }
+  .facts { display: grid; grid-template-columns: max-content 1fr; gap: 8px 20px; margin: 0; font-size: .95rem; }
+  .facts dt { color: var(--muted); }
+  .facts dd { margin: 0; overflow-wrap: anywhere; }
+  .guidelines ul { margin: 0 0 1em; padding-left: 1.2em; }
+  .guidelines li { margin-bottom: .4em; }
+  .draft-badge { font-size: .7rem; border: 1px dashed var(--muted); color: var(--muted); padding: 0 8px; border-radius: 4px; vertical-align: middle; margin-left: 6px; }
+  .kit-size { color: var(--muted); font-size: .85rem; font-weight: 400; }
+  .press-card h3 { margin-top: 0; }
+  .press-card + .press-card { margin-top: 20px; }
+
+  .contact-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+
+  .final-cta { text-align: center; }
+  .final-cta p { color: var(--muted); }
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">= tale(JK, 3)</a>
+    <nav class="header-nav" aria-label="Page">
+      <a class="nav-link" href="#screenshots"><span lang="ja">スクリーンショット</span><span lang="en">Screenshots</span></a>
+      <a class="nav-link" href="#press"><span lang="ja">プレス</span><span lang="en">Press</span></a>
+      <span class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-set-lang="ja" aria-pressed="true">日本語</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== ヒーロー＋上部CTA ===== -->
+  <section class="hero" aria-labelledby="title">
+    <div class="hero-art">
+      <picture>
+        <source media="(min-width: 760px)" srcset="img/hero-2400.webp" width="2400" height="775">
+        <img src="img/capsule.webp" width="1232" height="706" alt="" fetchpriority="high">
+      </picture>
+      <img class="hero-logo" src="img/logo.webp" width="800" height="480" alt="">
+    </div>
+    <div class="hero-body">
+      <div class="wrap">
+        <h1 id="title" class="visually-hidden">Roll Value</h1>
+        <p class="hero-tagline">
+          <span lang="ja">選択は、あなたの価値観を映し出す。</span>
+          <span lang="en">Your choices reveal what you value.</span>
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary demo-live" href="https://store.steampowered.com/app/5062630/" data-href="links.steam" target="_blank" rel="noopener">
+            <span lang="ja">体験版を今すぐプレイ</span><span lang="en">Play the Free Demo</span>
+          </a>
+          <a class="btn btn-secondary btn-wishlist" href="https://store.steampowered.com/app/5062630/" data-href="links.steam" target="_blank" rel="noopener">
+            <span lang="ja">ウィッシュリストに追加</span><span lang="en">Wishlist on Steam</span>
+          </a>
+        </div>
+        <p class="hero-note" data-fest>
+          <strong>Steam Next Fest</strong><span lang="ja"> に参加します：</span><span lang="en">: </span><span data-fest-period></span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Steam Next フェス ===== -->
+  <section class="section" data-fest aria-labelledby="fest-title">
+    <div class="wrap">
+      <div class="card fest">
+        <div>
+          <span class="fest-badge" data-when="upcoming"><span lang="ja">開催予定</span><span lang="en">COMING UP</span></span>
+          <span class="fest-badge" data-when="live"><span lang="ja">開催中</span><span lang="en">LIVE NOW</span></span>
+          <h2 id="fest-title">Steam Next Fest</h2>
+          <p class="fest-period" data-fest-period></p>
+          <p class="demo-live">
+            <span lang="ja">体験版は公開中です。フェス期間中も、Steamから無料でプレイできます。</span>
+            <span lang="en">The free demo is out now on Steam and playable throughout the festival.</span>
+          </p>
+          <p class="demo-soon">
+            <span lang="ja">フェス期間中は、Steamで体験版を無料でプレイできます。ウィッシュリストに追加してお待ちください。</span>
+            <span lang="en">Play the free demo on Steam during the festival. Wishlist now so you don't miss it.</span>
+          </p>
+        </div>
+        <a class="btn btn-primary demo-live" href="https://store.steampowered.com/app/5062630/" data-href="links.steam" target="_blank" rel="noopener">
+          <span lang="ja">Steamで体験版をプレイ</span><span lang="en">Play the Demo on Steam</span>
+        </a>
+        <a class="btn btn-primary demo-soon" href="https://store.steampowered.com/app/5062630/" data-href="links.steam" target="_blank" rel="noopener">
+          <span lang="ja">ウィッシュリストに追加</span><span lang="en">Wishlist on Steam</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 紹介・特徴（仮の文。ユーザーが書き換える） ===== -->
+  <section class="section section-alt" id="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <p class="eyebrow">About</p>
+      <h2 id="about-title"><span lang="ja">選択が、あなたを語る</span><span lang="en">Your Choices Speak for You</span></h2>
+      <p class="lead">
+        <span lang="ja">危機に瀕した王国で、3人の冒険者の決断を導く物語重視のテーブルトップ風RPG。人口と兵力が失われていく中、誰を救い、何を優先するのか。</span>
+        <span lang="en">A story-driven, tabletop-style RPG. Guide three adventurers through a kingdom in crisis, deciding whom to protect as its population and army decline.</span>
+      </p>
+      <div class="features">
+        <div class="card">
+          <h3><span lang="ja">特性とダイスが運命を変える</span><span lang="en">Traits and Dice Shape Fate</span></h3>
+          <p>
+            <span lang="ja">誰が挑むか、どんな特性を持つかで、同じ選択でも結果は変わります。</span>
+            <span lang="en">Who takes the roll, and what traits they carry, can change the outcome of the very same choice.</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3><span lang="ja">救い方はひとつではない</span><span lang="en">More Than One Way to Save It</span></h3>
+          <p>
+            <span lang="ja">竜の卵を追う王道だけでなく、民政や魔獣への対応も。積み重ねた判断が結末へつながります。</span>
+            <span lang="en">Chase the stolen dragon egg, tend to the people, or face the beasts. Your decisions add up to the ending.</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3><span lang="ja">あなたの価値観を映し出す</span><span lang="en">A Mirror of Your Values</span></h3>
+          <p>
+            <span lang="ja">選択は5つの行動原理として記録され、旅の終わりに価値観プロファイルが示されます。</span>
+            <span lang="en">Every choice is recorded across five principles, revealed at journey's end as your own value profile.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== スクリーンショット ===== -->
+  <section class="section" id="screenshots" aria-labelledby="ss-title">
+    <div class="wrap">
+      <p class="eyebrow">Screenshots</p>
+      <h2 id="ss-title"><span lang="ja">スクリーンショット</span><span lang="en">Screenshots</span></h2>
+      <div class="shots">
+        <a lang="ja" href="img/ss-01-jp.webp" target="_blank"><img src="img/ss-01-jp.webp" width="1280" height="720" loading="lazy" alt="進行画面：ドラゴンについて話すGM"></a>
+        <a lang="en" href="img/ss-01-en.webp" target="_blank"><img src="img/ss-01-en.webp" width="1280" height="720" loading="lazy" alt="Gameplay: the GM describes a dragon"></a>
+        <a lang="ja" href="img/ss-02-jp.webp" target="_blank"><img src="img/ss-02-jp.webp" width="1280" height="720" loading="lazy" alt="選択肢の画面"></a>
+        <a lang="en" href="img/ss-02-en.webp" target="_blank"><img src="img/ss-02-en.webp" width="1280" height="720" loading="lazy" alt="Choosing an action"></a>
+        <a lang="ja" href="img/ss-03-jp.webp" target="_blank"><img src="img/ss-03-jp.webp" width="1280" height="720" loading="lazy" alt="マップと移動先の選択"></a>
+        <a lang="en" href="img/ss-03-en.webp" target="_blank"><img src="img/ss-03-en.webp" width="1280" height="720" loading="lazy" alt="Map and choosing where to go"></a>
+        <a lang="ja" href="img/ss-06-jp.webp" target="_blank"><img src="img/ss-06-jp.webp" width="1280" height="720" loading="lazy" alt="タイトル画面"></a>
+        <a lang="en" href="img/ss-06-en.webp" target="_blank"><img src="img/ss-06-en.webp" width="1280" height="720" loading="lazy" alt="Title screen"></a>
+        <a lang="ja" href="img/ss-07-jp.webp" target="_blank"><img src="img/ss-07-jp.webp" width="1280" height="720" loading="lazy" alt="共通ステータス画面"></a>
+        <a lang="en" href="img/ss-07-en.webp" target="_blank"><img src="img/ss-07-en.webp" width="1280" height="720" loading="lazy" alt="Party status screen"></a>
+        <a lang="ja" href="img/ss-08-jp.webp" target="_blank"><img src="img/ss-08-jp.webp" width="1280" height="720" loading="lazy" alt="キャラクターのステータス画面"></a>
+        <a lang="en" href="img/ss-08-en.webp" target="_blank"><img src="img/ss-08-en.webp" width="1280" height="720" loading="lazy" alt="Character status screen"></a>
+      </div>
+
+      <!-- トレーラーができたら、ここに埋め込む -->
+
+      <div class="widget">
+        <iframe src="https://store.steampowered.com/widget/5062630/?l=japanese" data-src="links.widget" title="Roll Value on Steam" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== プレス ===== -->
+  <section class="section section-alt" id="press" aria-labelledby="press-title">
+    <div class="wrap">
+      <p class="eyebrow">Press</p>
+      <h2 id="press-title"><span lang="ja">プレス・配信者の方へ</span><span lang="en">For Press &amp; Creators</span></h2>
+      <div class="press-grid">
+
+        <div class="card">
+          <h3><span lang="ja">ファクトシート</span><span lang="en">Fact Sheet</span></h3>
+          <dl class="facts">
+            <dt><span lang="ja">タイトル</span><span lang="en">Title</span></dt>
+            <dd>Roll Value</dd>
+            <dt><span lang="ja">開発・販売</span><span lang="en">Developer / Publisher</span></dt>
+            <dd>= tale(JK, 3)</dd>
+            <dt><span lang="ja">ジャンル</span><span lang="en">Genre</span></dt>
+            <dd><span lang="ja">物語重視のテーブルトップ風RPG</span><span lang="en">Story-driven tabletop-style RPG</span></dd>
+            <dt><span lang="ja">対応OS</span><span lang="en">Platform</span></dt>
+            <dd>Windows（Steam）</dd>
+            <dt><span lang="ja">対応言語</span><span lang="en">Languages</span></dt>
+            <dd><span lang="ja">日本語、英語</span><span lang="en">English, Japanese</span></dd>
+            <dt><span lang="ja">発売時期</span><span lang="en">Release</span></dt>
+            <dd data-k="facts.release">2026年12月予定</dd>
+            <dt><span lang="ja">価格</span><span lang="en">Price</span></dt>
+            <dd data-k="facts.price">未定</dd>
+            <dt><span lang="ja">体験版</span><span lang="en">Demo</span></dt>
+            <dd class="demo-live"><span lang="ja">Steamで配信中（無料）</span><span lang="en">Available now on Steam (free)</span></dd>
+            <dd class="demo-soon"><span lang="ja">Steam Next フェス（2026年10月）に向けて公開予定（無料）</span><span lang="en">Coming for Steam Next Fest, October 2026 (free)</span></dd>
+            <dt>Steam</dt>
+            <dd><a href="https://store.steampowered.com/app/5062630/" data-href="links.steam" target="_blank" rel="noopener">store.steampowered.com/app/5062630</a></dd>
+            <dt><span lang="ja">連絡先</span><span lang="en">Contact</span></dt>
+            <dd><a href="mailto:talejk3@gmail.com" data-href="links.mail" data-k="email">talejk3@gmail.com</a></dd>
+          </dl>
+        </div>
+
+        <div>
+          <div class="card press-card">
+            <h3><span lang="ja">プレスキット</span><span lang="en">Press Kit</span></h3>
+            <p>
+              <span lang="ja">ロゴ、キーアート、スクリーンショット（日本語・英語）をまとめてダウンロードできます。</span>
+              <span lang="en">Logo, key art, and screenshots (English and Japanese) in one download.</span>
+            </p>
+            <a class="btn btn-secondary" href="/rollvalue/presskit/RollValue_presskit.zip" data-href="links.presskit" download>
+              <span lang="ja">ZIPをダウンロード</span><span lang="en">Download ZIP</span>
+              <span class="kit-size">(9.5 MB)</span>
+            </a>
+          </div>
+
+          <!-- 仮の文：配信・動画ガイドライン。文言を確定したら draft-badge を消す -->
+          <div class="card press-card guidelines">
+            <h3>
+              <span lang="ja">配信・動画のガイドライン</span><span lang="en">Streaming &amp; Video Policy</span>
+              <span class="draft-badge">DRAFT</span>
+            </h3>
+            <ul lang="ja">
+              <li>本作の配信・実況動画の投稿は、個人・法人を問わず自由に行えます。事前の連絡は不要です。</li>
+              <li>収益化も可能です（YouTube、Twitch、ニコニコ動画などの収益化機能を含みます）。</li>
+              <li>ゲーム内の音楽を含めて配信できます。</li>
+              <li>概要欄などに、タイトル名とSteamストアへのリンクを記載していただけると嬉しいです。</li>
+              <li>万一、本作の映像や音楽について権利の申し立てが届いた場合は、お手数ですがご連絡ください。</li>
+            </ul>
+            <ul lang="en">
+              <li>You are free to stream Roll Value and upload videos of it, whether you are an individual or a company. No need to ask first.</li>
+              <li>Monetization is allowed, including on YouTube, Twitch, and similar platforms.</li>
+              <li>The in-game music may be included in your streams and videos.</li>
+              <li>We'd appreciate the game title and a link to the Steam page in your description.</li>
+              <li>If you ever receive a copyright claim on footage or music from the game, please get in touch.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 連絡先 ===== -->
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h2 id="contact-title"><span lang="ja">お問い合わせ</span><span lang="en">Contact</span></h2>
+      <ul class="contact-list">
+        <li><span lang="ja">メール：</span><span lang="en">Email: </span><a href="mailto:talejk3@gmail.com" data-href="links.mail" data-k="email">talejk3@gmail.com</a></li>
+        <li>X：<a href="https://x.com/taleJK3" data-href="links.x" target="_blank" rel="noopener">@taleJK3</a><span lang="ja">（DMも受け付けています）</span><span lang="en"> (DMs open)</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 下部CTA ===== -->
+  <section class="section section-alt final-cta" aria-label="Steam">
+    <div class="wrap">
+      <h2 class="demo-live"><span lang="ja">体験版、配信中</span><span lang="en">Play the Demo Now</span></h2>
+      <h2 class="demo-soon"><span lang="ja">ウィッシュリストで応援を</span><span lang="en">Wishlist Roll Value</span></h2>
+      <p>
+        <span lang="ja">ウィッシュリストに追加すると、発売時にSteamからお知らせが届きます。</span>
+        <span lang="en">Add it to your wishlist and Steam will let you know when it launches.</span>
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary demo-live" href="https://store.steampowered.com/app/5062630/" data-href="links.steam" target="_blank" rel="noopener">
+          <span lang="ja">体験版を今すぐプレイ</span><span lang="en">Play the Free Demo</span>
+        </a>
+        <a class="btn btn-secondary btn-wishlist" href="https://store.steampowered.com/app/5062630/" data-href="links.steam" target="_blank" rel="noopener">
+          <span lang="ja">ウィッシュリストに追加</span><span lang="en">Wishlist on Steam</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© <span id="year">2026</span> = tale(JK, 3)</span>
+    <span><a href="/">talejk3.com</a> · <a href="https://x.com/taleJK3" target="_blank" rel="noopener">X</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
