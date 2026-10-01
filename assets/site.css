@@ -23,6 +23,9 @@
 
 html { -webkit-text-size-adjust: 100%; }
 
+/* 固定ヘッダーの下に隠れないように、ページ内リンクの着地位置をずらす */
+[id] { scroll-margin-top: 64px; }
+
 body {
   margin: 0;
   background: var(--bg);
