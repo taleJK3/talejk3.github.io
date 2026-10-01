@@ -24,7 +24,16 @@
   "inLanguage": ["ja", "en"],
   "author": { "@type": "Organization", "name": "= tale(JK, 3)", "url": "https://talejk3.com/" },
   "publisher": { "@type": "Organization", "name": "= tale(JK, 3)", "url": "https://talejk3.com/" },
-  "sameAs": ["https://store.steampowered.com/app/5062630/"]
+  "sameAs": ["https://store.steampowered.com/app/5062630/"],
+  "trailer": {
+    "@type": "VideoObject",
+    "name": "Roll Value トレーラー",
+    "description": "ドラゴンの襲来で滅亡の危機にある王国。AIゲームマスター・モンの案内で、3人の冒険者を導く、テーブルトップ風の物語RPG。",
+    "thumbnailUrl": "https://talejk3.com/rollvalue/video/trailer-ja-poster.webp",
+    "contentUrl": "https://talejk3.com/rollvalue/video/trailer-ja.mp4",
+    "uploadDate": "2026-10-02",
+    "duration": "PT51S"
+  }
 }
 </script>
 
@@ -127,6 +136,8 @@ window.SITE = {
   .features p { margin: 0; color: var(--muted); font-size: .95rem; }
 
   /* ---- スクリーンショット ---- */
+  .trailer video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; max-width: 960px; margin: 0 auto; background: #000; border: 1px solid var(--line); border-radius: 8px; }
+
   .shots { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
   .shots a { display: block; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); }
   .shots a:hover { border-color: var(--gold); }
@@ -276,6 +287,22 @@ window.SITE = {
     </div>
   </section>
 
+  <!-- ===== トレーラー（Steamストアと同じもの。web用に圧縮） ===== -->
+  <section class="section" id="trailer" aria-labelledby="trailer-title">
+    <div class="wrap">
+      <p class="eyebrow">Trailer</p>
+      <h2 id="trailer-title"><span lang="ja">トレーラー</span><span lang="en">Trailer</span></h2>
+      <div class="trailer">
+        <video lang="ja" controls playsinline preload="none" width="1920" height="1080" poster="video/trailer-ja-poster.webp">
+          <source src="video/trailer-ja.mp4" type="video/mp4">
+        </video>
+        <video lang="en" controls playsinline preload="none" width="1920" height="1080" poster="video/trailer-en-poster.webp">
+          <source src="video/trailer-en.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== スクリーンショット ===== -->
   <section class="section" id="screenshots" aria-labelledby="ss-title">
     <div class="wrap">
@@ -296,7 +323,6 @@ window.SITE = {
         <a lang="en" href="img/ss-08-en.webp" target="_blank"><img src="img/ss-08-en.webp" width="1280" height="720" loading="lazy" alt="Character status screen"></a>
       </div>
 
-      <!-- トレーラーができたら、ここに埋め込む -->
 
       <div class="widget">
         <iframe src="https://store.steampowered.com/widget/5062630/?l=japanese" data-src="links.widget" title="Roll Value on Steam" loading="lazy"></iframe>
@@ -342,12 +368,12 @@ window.SITE = {
           <div class="card press-card">
             <h3><span lang="ja">プレスキット</span><span lang="en">Press Kit</span></h3>
             <p>
-              <span lang="ja">ロゴ、キーアート、スクリーンショット（日本語・英語）をまとめてダウンロードできます。</span>
-              <span lang="en">Logo, key art, and screenshots (English and Japanese) in one download.</span>
+              <span lang="ja">ロゴ、キーアート、スクリーンショット、トレーラー（日本語・英語）をまとめてダウンロードできます。</span>
+              <span lang="en">Logo, key art, screenshots, and trailers (English and Japanese) in one download.</span>
             </p>
             <a class="btn btn-secondary" href="/rollvalue/presskit/RollValue_presskit.zip" data-href="links.presskit" download>
               <span lang="ja">ZIPをダウンロード</span><span lang="en">Download ZIP</span>
-              <span class="kit-size">(9.5 MB)</span>
+              <span class="kit-size">(35 MB)</span>
             </a>
           </div>
 

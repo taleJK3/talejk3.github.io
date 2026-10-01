@@ -93,6 +93,7 @@
     root.setAttribute("data-lang", lang);
     root.lang = lang;
     try { localStorage.setItem("lang", lang); } catch (e) {}
+    document.querySelectorAll("video").forEach(function (v) { v.pause(); });
     render();
   }
 
