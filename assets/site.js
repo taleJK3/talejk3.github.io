@@ -140,6 +140,8 @@
 
     function open(a) {
       items = visibleLinks();
+      // 1枚だけなら前後ボタンと枚数表示は出さない
+      dlg.classList.toggle("lightbox-single", items.length < 2);
       show(Math.max(0, items.indexOf(a)));
       root.classList.add("lightbox-open");
       dlg.showModal();

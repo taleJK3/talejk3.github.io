@@ -130,7 +130,8 @@ p { margin: 0 0 1em; }
 .work-card:hover { border-color: var(--gold); transform: translateY(-2px); color: var(--text); }
 .work-card img { width: 100%; aspect-ratio: 1232 / 706; object-fit: cover; }
 .work-card .body { padding: 16px 20px 20px; }
-.work-card h2 { font-size: 1.3rem; margin-bottom: .3em; }
+.work-card h3 { font-size: 1.3rem; margin-bottom: .3em; }
+.work-card .work-kind { font-size: .75rem; letter-spacing: .16em; color: var(--gold); margin: 0 0 2px; }
 .work-card p { color: var(--muted); font-size: .92rem; margin: 0; }
 .tag { display: inline-block; font-size: .75rem; padding: 0 10px; border-radius: 999px; border: 1px solid var(--gold); color: var(--gold-strong); margin-bottom: 8px; }
 
@@ -166,3 +167,6 @@ html.lightbox-open { overflow: hidden; }
   .lightbox-next { right: 16px; }
   .lightbox-count { bottom: 22px; }
 }
+.lightbox-single .lightbox-prev,
+.lightbox-single .lightbox-next,
+.lightbox-single .lightbox-count { display: none; }
