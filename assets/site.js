@@ -97,12 +97,100 @@
     render();
   }
 
+  // ---- ライトボックス：.shots 内の画像リンクをページ上で拡大表示する ----
+  // JSが動かないときは、リンクのまま別タブで画像を開く。
+  function initLightbox() {
+    var links = document.querySelectorAll(".shots a");
+    if (!links.length || typeof HTMLDialogElement !== "function") return;
+
+    var dlg = document.createElement("dialog");
+    dlg.className = "lightbox";
+    dlg.setAttribute("aria-label", "Screenshot");
+    dlg.innerHTML =
+      '<img class="lightbox-img" alt="">' +
+      '<button type="button" class="lightbox-btn lightbox-close" aria-label="Close">&times;</button>' +
+      '<button type="button" class="lightbox-btn lightbox-prev" aria-label="Previous">&#8249;</button>' +
+      '<button type="button" class="lightbox-btn lightbox-next" aria-label="Next">&#8250;</button>' +
+      '<p class="lightbox-count" aria-live="polite"></p>';
+    document.body.appendChild(dlg);
+
+    var img = dlg.querySelector(".lightbox-img");
+    var count = dlg.querySelector(".lightbox-count");
+    var items = [];
+    var index = 0;
+
+    // 表示中の言語のスクショだけを順番にめくる
+    function visibleLinks() {
+      return Array.prototype.filter.call(links, function (a) { return a.offsetParent !== null; });
+    }
+
+    function show(i) {
+      index = (i + items.length) % items.length;
+      var a = items[index];
+      var thumb = a.querySelector("img");
+      img.src = a.getAttribute("href");
+      img.alt = thumb ? thumb.alt : "";
+      count.textContent = (index + 1) + " / " + items.length;
+      // 前後の画像を先読みしておく
+      [index - 1, index + 1].forEach(function (j) {
+        var n = items[(j + items.length) % items.length];
+        if (n) new Image().src = n.getAttribute("href");
+      });
+    }
+
+    function open(a) {
+      items = visibleLinks();
+      show(Math.max(0, items.indexOf(a)));
+      root.classList.add("lightbox-open");
+      dlg.showModal();
+    }
+
+    links.forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        // 新しいタブで開く操作（Ctrl/⌘/Shift/中クリック）はそのまま通す
+        if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
+        e.preventDefault();
+        open(a);
+      });
+    });
+
+    dlg.querySelector(".lightbox-close").addEventListener("click", function () { dlg.close(); });
+    dlg.querySelector(".lightbox-prev").addEventListener("click", function () { show(index - 1); });
+    dlg.querySelector(".lightbox-next").addEventListener("click", function () { show(index + 1); });
+    dlg.addEventListener("close", function () { root.classList.remove("lightbox-open"); });
+
+    // 画像やボタン以外（暗い背景）をクリックしたら閉じる
+    dlg.addEventListener("click", function (e) {
+      if (e.target === dlg) dlg.close();
+    });
+
+    dlg.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { e.preventDefault(); show(index - 1); }
+      if (e.key === "ArrowRight") { e.preventDefault(); show(index + 1); }
+    });
+
+    // スマホ：横スワイプで前後へ
+    var startX = null, startY = null;
+    dlg.addEventListener("touchstart", function (e) {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+    dlg.addEventListener("touchend", function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      var dy = e.changedTouches[0].clientY - startY;
+      startX = null;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(index + (dx < 0 ? 1 : -1));
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".lang-switch button").forEach(function (b) {
       b.addEventListener("click", function () { setLang(b.getAttribute("data-set-lang")); });
     });
     var year = document.getElementById("year");
     if (year) year.textContent = new Date().getFullYear();
+    initLightbox();
     render();
   });
 })();

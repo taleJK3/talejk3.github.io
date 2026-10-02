@@ -133,3 +133,36 @@ p { margin: 0 0 1em; }
 .work-card h2 { font-size: 1.3rem; margin-bottom: .3em; }
 .work-card p { color: var(--muted); font-size: .92rem; margin: 0; }
 .tag { display: inline-block; font-size: .75rem; padding: 0 10px; border-radius: 999px; border: 1px solid var(--gold); color: var(--gold-strong); margin-bottom: 8px; }
+
+/* ---- ライトボックス（スクショの拡大表示。assets/site.js の initLightbox） ---- */
+html.lightbox-open { overflow: hidden; }
+.lightbox {
+  width: 100vw; height: 100vh; height: 100dvh; max-width: none; max-height: none;
+  margin: 0; padding: 56px 16px; border: 0;
+  background: rgba(5, 6, 14, .94); color: var(--text);
+}
+.lightbox[open] { display: flex; align-items: center; justify-content: center; }
+.lightbox::backdrop { background: transparent; }
+.lightbox-img {
+  max-width: min(100%, 1600px); max-height: 100%; width: auto; height: auto;
+  object-fit: contain; border-radius: 6px; box-shadow: 0 8px 40px rgba(0, 0, 0, .6);
+}
+.lightbox-btn {
+  position: absolute; display: grid; place-items: center;
+  width: 48px; height: 48px; border-radius: 999px;
+  border: 1px solid var(--line); background: rgba(23, 27, 54, .85); color: var(--text);
+  font-size: 30px; line-height: 1; cursor: pointer;
+}
+.lightbox-btn:hover { border-color: var(--gold); color: var(--gold-strong); }
+.lightbox-close { top: 8px; right: 12px; }
+.lightbox-prev { left: 12px; top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: 12px; top: 50%; transform: translateY(-50%); }
+.lightbox-count { position: absolute; bottom: 12px; left: 0; right: 0; margin: 0; text-align: center; color: var(--muted); font-size: .9rem; }
+/* スマホでは矢印を画像に重ねず下に置く（スワイプでも送れる） */
+@media (max-width: 640px) {
+  .lightbox { padding: 56px 8px 72px; }
+  .lightbox-prev, .lightbox-next { top: auto; bottom: 8px; transform: none; }
+  .lightbox-prev { left: 16px; }
+  .lightbox-next { right: 16px; }
+  .lightbox-count { bottom: 22px; }
+}
