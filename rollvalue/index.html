@@ -161,7 +161,6 @@ window.SITE = {
   .press-card h3 { margin-top: 0; }
   .press-card + .press-card { margin-top: 20px; }
 
-  .contact-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
 
   .final-cta { text-align: center; }
   .final-cta p { color: var(--muted); }
@@ -402,18 +401,6 @@ window.SITE = {
     </div>
   </section>
 
-  <!-- ===== 連絡先 ===== -->
-  <section class="section" id="contact" aria-labelledby="contact-title">
-    <div class="wrap">
-      <p class="eyebrow">Contact</p>
-      <h2 id="contact-title"><span lang="ja">お問い合わせ</span><span lang="en">Contact</span></h2>
-      <ul class="contact-list">
-        <li><span lang="ja">メール：</span><span lang="en">Email: </span><a href="mailto:talejk3@gmail.com" data-href="links.mail" data-k="email">talejk3@gmail.com</a></li>
-        <li>X：<a href="https://x.com/taleJK3" data-href="links.x" target="_blank" rel="noopener">@taleJK3</a><span lang="ja">（DMも受け付けています）</span><span lang="en"> (DMs open)</span></li>
-      </ul>
-    </div>
-  </section>
-
   <!-- ===== 下部CTA ===== -->
   <section class="section section-alt final-cta" aria-label="Steam">
     <div class="wrap">
@@ -439,7 +426,10 @@ window.SITE = {
 <footer class="footer">
   <div class="wrap">
     <span>© <span id="year">2026</span> = tale(JK, 3)</span>
-    <span><a href="/">talejk3.com</a> · <a href="https://x.com/taleJK3" target="_blank" rel="noopener">X</a></span>
+    <span class="footer-links">
+      <span class="footer-contact"><span lang="ja">お問い合わせ：</span><span lang="en">Contact: </span><a href="mailto:talejk3@gmail.com" data-href="links.mail" data-k="email">talejk3@gmail.com</a></span>
+      <span><a href="/">talejk3.com</a> · <a href="https://x.com/taleJK3" target="_blank" rel="noopener">X</a></span>
+    </span>
   </div>
 </footer>
 
