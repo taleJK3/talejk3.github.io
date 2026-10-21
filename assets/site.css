@@ -132,6 +132,26 @@ p { margin: 0 0 1em; }
 .work-card img { width: 100%; aspect-ratio: 1232 / 706; object-fit: cover; }
 .work-card .body { padding: 16px 20px 20px; }
 .work-card h3 { font-size: 1.3rem; margin-bottom: .3em; }
+/* ---- 小説の文字だけの表紙（トップのカードとRoll Valueのバナーで共用） ---- */
+.novel-cover {
+  aspect-ratio: 1232 / 706; display: grid; place-content: center; gap: 12px; padding: 20px;
+  text-align: center; font-family: var(--font-serif);
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(216, 191, 138, .16), transparent 65%),
+    linear-gradient(160deg, #1d2145, #0e1024);
+  border-bottom: 1px solid var(--line);
+}
+.novel-cover-title { font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.2rem); letter-spacing: .12em; color: var(--gold-strong); }
+.novel-cover-copy { font-size: .9rem; line-height: 1.7; color: var(--text); opacity: .85; }
+.novel-banner { display: grid; padding: 0; overflow: hidden; margin-top: 28px; text-decoration: none; color: var(--text); transition: border-color .15s; }
+@media (min-width: 760px) { .novel-banner { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); align-items: center; } .novel-banner .novel-cover { border-bottom: 0; border-right: 1px solid var(--line); } }
+.novel-banner:hover { border-color: var(--gold); color: var(--text); }
+.novel-banner .body { padding: 20px 24px; }
+.novel-banner h3 { font-size: 1.3rem; margin-bottom: .3em; }
+.novel-banner p { margin: 0 0 .6em; color: var(--muted); font-size: .95rem; }
+.novel-banner .work-kind { font-size: .75rem; letter-spacing: .16em; color: var(--gold); margin: 0 0 2px; }
+.novel-banner .more { color: var(--gold-strong); font-weight: 700; font-size: .95rem; }
+
 .work-card .work-kind { font-size: .75rem; letter-spacing: .16em; color: var(--gold); margin: 0 0 2px; }
 .work-card p { color: var(--muted); font-size: .92rem; margin: 0; }
 .tag { display: inline-block; font-size: .75rem; padding: 0 10px; border-radius: 999px; border: 1px solid var(--gold); color: var(--gold-strong); margin-bottom: 8px; }
