@@ -61,7 +61,11 @@
     });
     document.querySelectorAll("[data-href]").forEach(function (el) {
       var v = t(get(el.getAttribute("data-href")));
-      if (v) el.setAttribute("href", v);
+      if (!v) return;
+      // 遷移元の解析用：リンクの置き場所を utm_content として付ける
+      var place = el.getAttribute("data-utm-content");
+      if (place) v += (v.indexOf("?") >= 0 ? "&" : "?") + "utm_content=" + encodeURIComponent(place);
+      el.setAttribute("href", v);
     });
     document.querySelectorAll("[data-src]").forEach(function (el) {
       var v = t(get(el.getAttribute("data-src")));
